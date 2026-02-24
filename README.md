@@ -1,0 +1,1 @@
+This is the final group project that myself and a few others worked on for the AI Summer Camp. We called it Lyric Lyft. It takes a word prompt containing lyrics and autocompletes what the most likely next lyrics are.
