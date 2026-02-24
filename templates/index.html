@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Lyric Lyft</title>
+{% endblock %}
+
+{% block body %}
+<!--Main body-->
+<div class="content" style="display:flex; flex-direction: column; justify-content: center; align-items: center">
+    <!--Header-->
+    <h1>Lyric Lyft</h1>
+    <!--User input interface-->
+    <form action="/" method="POST">
+        <!--Text area for user to type their response-->
+        <textarea name="content" id="content" class="fixedtextarea" placeholder="Write prompt here..." rows="10" cols="40" wrap="hard" required="required" maxlength="300"></textarea>
+        <!--Submission button that submits the user's input-->
+        <div>
+            <input type="submit" value="Submit Prompt">
+        </div>
+    </form>
+    <!--Display for the ai's output-->
+    {% if response|length > 0 %}
+    <h4>{{ response }}</h4>
+    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+        <!--Clear button that erases and resets the ai's output-->
+        <form action="/clear" method="POST">
+            <input type="submit" value="Clear Output" >
+        </form>
+        <!--Continue button that resubmits the ai's output-->
+        <form action="/continue" method="POST">
+            <input type="submit" value="Continue Output" >
+        </form>
+
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
